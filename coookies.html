@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        /* --- ESTILOS BASE --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fffaf0; /* Crema suave: transmite calidez */
+            color: #3e2723; /* Marrón chocolate: confianza y sabor */
+            overflow-x: hidden;
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes entradaSuave {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fundidoTexto {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- HEADER LARGO (HERO SECTION) --- */
+        .hero {
+            height: 70vh; /* Altura del 70% de la ventana */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            animation: entradaSuave 1.2s ease-out; /* Animación de caída suave */
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+            animation: fundidoTexto 2s ease-in;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            margin-top: 15px;
+            font-style: italic;
+            animation: fundidoTexto 3s ease-in;
+        }
+
+        /* --- CONTENEDOR Y GRID --- */
+        .container {
+            max-width: 1100px;
+            margin: -60px auto 60px; /* Sube las tarjetas sobre el hero */
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            border: 1px solid #f3e5f5;
+        }
+
+        .card:hover {
+            transform: translateY(-15px); /* Efecto de levitación al pasar el mouse */
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e67e22; /* Naranja: Estimula el apetito */
+            margin: 15px 0;
+        }
+
+        /* --- BOTÓN PSICOLÓGICO --- */
+        .btn {
+            background-color: #27ae60; /* Verde: Acción positiva y frescura */
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #219150;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+
+        footer {
+            background: #3e2723;
+            color: #d7ccc8;
+            text-align: center;
+            padding: 60px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>DULCE MOMENTO</h1>
+        <p>Artesanía horneada con el alma</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80" alt="Galleta">
+                <div class="card-body">
+                    <h3>Chispas de Chocolate</h3>
+                    <p>Cacao puro al 70% seleccionado para una experiencia intensa.</p>
+                    <div class="price">$3.500</div>
+                    <button class="btn">¡LA QUIERO!</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80" alt="Red Velvet">
+                <div class="card-body">
+                    <h3>Red Velvet Premium</h3>
+                    <p>Suave textura aterciopelada con centro de crema dulce.</p>
+                    <div class="price">$4.200</div>
+                    <button class="btn">¡LA QUIERO!</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80" alt="Avena">
+                <div class="card-body">
+                    <h3>Avena y Arándanos</h3>
+                    <p>El balance perfecto entre lo saludable y lo delicioso.</p>
+                    <div class="price">$3.000</div>
+                    <button class="btn" href="https://wa.me/3134114485">¡LA QUIERO!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>¿Tienes un antojo o un evento?</p>
+        <p>Contáctanos</p>
+        <button type="button" class="btn btn-success"><i class="bi bi-whatsapp mx-2"></i>Whatsapp</button>
+        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 20px;">&copy; 2026 Galletas Artesanales</p>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
