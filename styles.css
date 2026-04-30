@@ -1,0 +1,202 @@
+        /* --- ESTILOS BASE --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fffaf0; /* Crema suave: transmite calidez */
+            color: #3e2723; /* Marrón chocolate: confianza y sabor */
+            overflow-x: hidden;
+        }
+
+        /* --- ANIMACIONES --- */
+        @keyframes entradaSuave {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fundidoTexto {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- HEADER LARGO (HERO SECTION) --- */
+        .hero {
+            height: 70vh; /* Altura del 70% de la ventana */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            animation: entradaSuave 1.2s ease-out; /* Animación de caída suave */
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+            animation: fundidoTexto 2s ease-in;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            margin-top: 15px;
+            font-style: italic;
+            animation: fundidoTexto 3s ease-in;
+        }
+
+        /* --- CONTENEDOR Y GRID --- */
+        .container {
+            max-width: 1100px;
+            margin: -60px auto 60px; /* Sube las tarjetas sobre el hero */
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            border: 1px solid #f3e5f5;
+        }
+
+        .card:hover {
+            transform: translateY(-15px); /* Efecto de levitación al pasar el mouse */
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #e67e22; /* Naranja: Estimula el apetito */
+            margin: 15px 0;
+        }
+
+        /* --- BOTÓN PSICOLÓGICO --- */
+        .btn {
+             /* Verde: Acción positiva y frescura */
+            color: black;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn:hover {
+            
+            transform: scale(1.05);
+            
+        }
+        /* Contenedor del botón */
+.btn-flotante-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* El botón circular/alargado */
+.btn-whatsapp-float {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    animation: bounce 2s infinite;
+}
+
+.btn-whatsapp-float:hover {
+    transform: scale(1.05);
+    background-color: #20b358;
+}
+
+/* Badge del contador (el numerito rojo) */
+.badge-flotante {
+    background-color: #ff3b30;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    right: 5px;
+    border: 2px solid white;
+}
+
+/* Animación sutil */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-5px);}
+    60% {transform: translateY(-3px);}
+}
+
+/* En celulares pequeños, ocultar el texto y dejar solo el icono si prefieres */
+@media (max-width: 480px) {
+    .texto-boton {
+        display: none;
+    }
+    .btn-whatsapp-float {
+        padding: 15px;
+        border-radius: 50%;
+    }
+}
+
+
+        footer {
+            background: #3e2723;
+            color: #d7ccc8;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        

@@ -1,199 +1,315 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titi's Cookies</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <style>
-        /* --- ESTILOS BASE --- */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fffaf0; /* Crema suave: transmite calidez */
-            color: #3e2723; /* Marrón chocolate: confianza y sabor */
-            overflow-x: hidden;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Titi's Cookies</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+        />
+        <link rel="stylesheet" href="styles.css" title="" type="" />
+    </head>
+    <body>
+        <header class="hero">
+            <h1>Galletas Titi's</h1>
+            <p>Artesanía horneada con el alma</p>
+        </header>
 
-        /* --- ANIMACIONES --- */
-        @keyframes entradaSuave {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80"
+                        alt="Galleta"
+                    />
+                    <div class="card-body">
+                        <h3>Galletas de Chocolate</h3>
+                        <p>
+                            Una explosión de sabor que te hará brincar de la
+                            emoción.
+                        </p>
+                        <span
+                            class="badge rounded-pill bg-light text-dark border mb-2"
+                            >Paquete x2</span
+                        >
+                        <div class="price">$2.500</div>
 
-        @keyframes fundidoTexto {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+                        <button
+                            class="btn btn-success w-100 mt-3 text-white"
+                            onclick="
+                                agregarAlCarrito(
+                                    1,
+                                    'Galletas de Chocolate',
+                                    2500
+                                )
+                            "
+                        >
+                            ¡LAS QUIERO! <i class="bi bi-cart-plus"></i>
+                        </button>
+                        <div
+                            class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
+                        >
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                onclick="quitarDelCarrito(1)"
+                            >
+                                -
+                            </button>
 
-        /* --- HEADER LARGO (HERO SECTION) --- */
-        .hero {
-            height: 70vh; /* Altura del 70% de la ventana */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            animation: entradaSuave 1.2s ease-out; /* Animación de caída suave */
-        }
+                            <span id="qty-1" class="fw-bold">0</span>
 
-        .hero h1 {
-            font-size: 4.5rem;
-            margin: 0;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-            animation: fundidoTexto 2s ease-in;
-        }
-
-        .hero p {
-            font-size: 1.8rem;
-            margin-top: 15px;
-            font-style: italic;
-            animation: fundidoTexto 3s ease-in;
-        }
-
-        /* --- CONTENEDOR Y GRID --- */
-        .container {
-            max-width: 1100px;
-            margin: -60px auto 60px; /* Sube las tarjetas sobre el hero */
-            padding: 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-align: center;
-            border: 1px solid #f3e5f5;
-        }
-
-        .card:hover {
-            transform: translateY(-15px); /* Efecto de levitación al pasar el mouse */
-        }
-
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 30px;
-        }
-
-        .price {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #e67e22; /* Naranja: Estimula el apetito */
-            margin: 15px 0;
-        }
-
-        /* --- BOTÓN PSICOLÓGICO --- */
-        .btn {
-            background-color: #27ae60; /* Verde: Acción positiva y frescura */
-            color: white;
-            padding: 15px 35px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-        }
-
-        .btn:hover {
-            background-color: #219150;
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
-        }
-
-        footer {
-            background: #3e2723;
-            color: #d7ccc8;
-            text-align: center;
-            padding: 60px 20px;
-        }
-    </style>
-</head>
-<body>
-
-    <header class="hero">
-        <h1>Galletas Titi's</h1>
-        <p>Artesanía horneada con el alma</p>
-    </header>
-
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80" alt="Galleta">
-                <div class="card-body">
-                    <h3>Chispas de Chocolate</h3>
-                    <p>Una explosión de sabor que te hará brincar de la emoción.</p>
-                    <div class="price">$3.500</div>
-                                        <a href="https://wa.me/3134114485?text=Hola!%20Me%20gustaría%20preguntar%20por%20las%20galletas%20de%20chispas%20de%20chocolate" target="_blank">
-                    <button class="btn">¡LA QUIERO!</button>
-                    </a>
+                            <button
+                                class="btn btn-outline-success btn-sm"
+                                onclick="agregarAlCarrito(
+                                    1,
+                                    'Galletas de Chocolate',
+                                    2500
+                                )"
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80" alt="Red Velvet">
-                <div class="card-body">
-                    <h3>Red Velvet Premium</h3>
-                    <p>Suave textura con chocolate y centro de leche que te hará gozar.</p>
-                    <div class="price">$4.200</div>
-                                        <a href="https://wa.me/3134114485?text=Hola!%20Me%20gustaría%20preguntar%20por%20las%20galletas%20de%20Red%20velvet%20premium" target="_blank">
-                    <button class="btn">¡LA QUIERO!</button>
-                    </a>
+                <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80"
+                        alt="Galleta"
+                    />
+                    <div class="card-body">
+                        <h3>Galletas de Chocolate</h3>
+                        <p>El sabor tradicional en la palma de tu mano.</p>
+                        <span
+                            class="badge rounded-pill bg-light text-dark border mb-2"
+                            >Paquete x3</span
+                        >
+                        <div class="price">$3.500</div>
+
+                        <button
+                            class="btn btn-success w-100 mt-3 text-white"
+                            onclick="
+                                agregarAlCarrito(
+                                    2,
+                                    'Galletas de Chocolate',
+                                    3500
+                                )
+                            "
+                        >
+                            ¡LAS QUIERO!
+                        </button>
+                        <div
+                            class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
+                        >
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                onclick="quitarDelCarrito(2)"
+                            >
+                                -
+                            </button>
+
+                            <span id="qty-2" class="fw-bold">0</span>
+
+                            <button
+                                class="btn btn-outline-success btn-sm"
+                                onclick="agregarAlCarrito(
+                                    2,
+                                    'Galletas de Chocolate',
+                                    3500
+                                )"
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="card">
+                    <img
+                        src="img/caja-galletas.jpg"
+                        alt="Galleta"
+                    />
+                    <div class="card-body">
+                        <h3>Caja de galletas</h3>
+                        <p>
+                            Un regalo para especial para alguien muy especial.
+                        </p>
+                        <span
+                            class="badge rounded-pill bg-light text-dark border mb-2"
+                            >Paquete x6</span
+                        >
+                        <div class="price">$13.000</div>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80" alt="Avena">
-                <div class="card-body">
-                    <h3>Avena y Arándanos</h3>
-                    <p>El balance perfecto entre lo saludable y lo delicioso.</p>
-                    <div class="price">$3.000</div>
-                    <a href="https://wa.me/3134114485?text=Hola!%20Me%20gustaría%20preguntar%20por%20las%20galletas%20de%20avena%20y%20arandanos" target="_blank">
-                    <button class="btn">¡LA QUIERO!</button></a>
+                        <button
+                            class="btn btn-success w-100 mt-3 text-white"
+                            onclick="
+                                agregarAlCarrito(
+                                    3,
+                                    'Caja de galletas x6',
+                                    13000
+                                )
+                            "
+                        >
+                            ¡LA QUIERO!
+                        </button>
+                        <div
+                            class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
+                        >
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                onclick="quitarDelCarrito(3)"
+                            >
+                                -
+                            </button>
+
+                            <span id="qty-3" class="fw-bold">0</span>
+
+                            <button
+                                class="btn btn-outline-success btn-sm"
+                                onclick="agregarAlCarrito(
+                                    3,
+                                    'Caja de galletas x6',
+                                    13000
+                                )"
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- MANI-->
+                <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80"
+                        alt="Galleta"
+                    />
+                    <div class="card-body">
+                        <h3>Maní dulce</h3>
+                        <p>
+                            Maní dulce con todo el sabor del campo para tu
+                            deleite.
+                        </p>
+                        <span
+                            class="badge rounded-pill bg-light text-dark border mb-2"
+                            >60 gr</span
+                        >
+                        <div class="price">$2.000</div>
+
+                        <button
+                            class="btn btn-success w-100 mt-3 text-white"
+                            onclick="agregarAlCarrito(4, 'mani dulce 60gr', 2000)"
+                        >
+                            ¡LO QUIERO!
+                        </button>
+                        <div
+                            class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
+                        >
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                onclick="quitarDelCarrito(4)"
+                            >
+                                -
+                            </button>
+
+                            <span id="qty-4" class="fw-bold">0</span>
+
+                            <button
+                                class="btn btn-outline-success btn-sm"
+                                onclick="agregarAlCarrito(4, 'mani dulce 60gr', 2000)"
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                 <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&q=80"
+                        alt="Galleta"
+                    />
+                    <div class="card-body">
+                        <h3>Maní salado</h3>
+                        <p>
+                            Un maní diferente que te hará sentir especial.
+                        </p>
+                                                <span class="badge rounded-pill bg-light text-dark border mb-2">60 gr</span>
+                        <div class="price">$2.000</div>
+
+                        <button
+                            class="btn btn-success w-100 mt-3 text-white"
+                            onclick="
+                                agregarAlCarrito(
+                                    5,
+                                    'mani salado 60gr',
+                                    2000
+                                )
+                            "
+                        >
+                            ¡LO QUIERO!
+                        </button>
+                        <div
+                            class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
+                        >
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                onclick="quitarDelCarrito(5)"
+                            >
+                                -
+                            </button>
+
+                            <span id="qty-5" class="fw-bold">0</span>
+
+                            <button
+                                class="btn btn-outline-success btn-sm"
+                                onclick="
+                                    agregarAlCarrito(
+                                    5,
+                                    'mani salado 60gr',
+                                    2000
+                                )
+                                "
+                            >
+                                +
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer>
-        <p>¿Tienes un antojo o un evento?</p>
-        <p>Contáctanos</p>
-        <a href="https://wa.me/3134114485?text=Hola!%20Me%20gustaría%20pedir%20un%20presupuesto">
-        <button type="button" class="btn btn-success"><i class="bi bi-whatsapp mx-2"></i>Whatsapp</button>
-        </a>
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 20px;">&copy; 2026 Galletas Artesanales</p>
-    </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
+        <footer>
+            <p>¿Tienes un antojo o un evento?</p>
+            <p>Contáctanos</p>
+            <a
+                href="https://wa.me/3134114485?text=Hola!%20Me%20gustaría%20pedir%20un%20presupuesto"
+            >
+                <button type="button" class="btn btn-success">
+                    <i class="bi bi-whatsapp mx-2"></i>Whatsapp
+                </button>
+            </a>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 20px">
+                &copy; 2026 Galletas Artesanales
+            </p>
+        </footer>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+        <script src="script.js" type="text/javascript" charset="utf-8"></script>
+        <div class="btn-flotante-container" onclick="enviarAlWhatsApp()">
+
+    <button class="btn-whatsapp-float">
+        <i class="bi bi-send"></i>
+        <span class="texto-boton">Enviar Pedido</span>
+    </button>
+</div>
+
+    </body>
 </html>
