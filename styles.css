@@ -131,8 +131,8 @@ body {
 }
 .btn-plus-min{
     /* Verde: Acción positiva y frescura */
-    color: black;
-    background-color: #198754;
+    color: white;
+    background-color: #4e0017;
     padding: 15px 35px;
     border: none;
     border-radius: 50px;
@@ -142,7 +142,11 @@ body {
     text-decoration: none;
     display: inline-block;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    box-shadow: 0 4px 15px rgba(78, 0, 23, 1);
+}
+.btn-plus-min:hover{
+  background-color: #cbcbcb;
+  transform: scale(1.05);
 }
 
 
