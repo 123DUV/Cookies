@@ -3,7 +3,7 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fffaf0; /* Crema suave: transmite calidez */
+    background-color: #f9f5f5; /* Crema suave: transmite calidez */
     color: #3e2723; /* Marrón chocolate: confianza y sabor */
     overflow-x: hidden;
 }
@@ -112,7 +112,7 @@ body {
 .btn-all{
     /* Verde: Acción positiva y frescura */
     color: black;
-    background-color: #198764;
+    background-color: #4e0017;
     padding: 15px 35px;
     border: none;
     border-radius: 50px;
@@ -127,7 +127,22 @@ body {
 .btn-all-hero{
   font-size: 2.2vw;
   padding: 1vw 2vw;
-margin-left: 3vw;
+
+}
+.btn-plus-min{
+    /* Verde: Acción positiva y frescura */
+    color: black;
+    background-color: #198754;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
 }
 
 
@@ -215,12 +230,24 @@ margin-left: 3vw;
     }
 }
 
+
 footer {
-    background: #3e2723;
-    color: #d7ccc8;
+    background: #f9f5f5;
+    color: #4e0017;
     text-align: center;
     padding: 60px 20px;
 }
 footer p {
+  font-size: 2vw;
+  
+}
+.fuente-bodoni{
+  font-family: 'Bodoni moda', serif;
+  font-style: italic;
+  font-weight: 700;
+}
+@media(max-width: 768px){
+  footer p {
   font-size: 0.8rem;
+}
 }
