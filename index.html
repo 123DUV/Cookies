@@ -17,8 +17,10 @@
         <link rel="stylesheet" href="styles.css" title="" type="" />
     </head>
     <body>
-      <div class="main-hero">
-
+      <div class="d-flex justify-content-center align-items-center p-2 sticky-top bg-white">
+        <img  src="img/loguito.png" width="15%" class="me-md-2"/>
+        <p class="mb-0 text-justify d-none d-md-block" style="font-size: 2.2vw">Encuentra tu estilo con </br>Glamour y Encanto</p>
+          <button  class="btn btn-dark btn-all-hero d-none d-md-block" >Ver más</button>
       </div>
         <header class="hero">
 
@@ -47,7 +49,7 @@
                             class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
                         >
                             <button
-                                class="btn btn-outline-secondary btn-sm"
+                                class=" btn-all btn-all-outline-secondary btn-all-sm"
                                 onclick="quitarDelCarrito(1)"
                             >
                                 -
@@ -56,7 +58,7 @@
                             <span id="qty-1" class="fw-bold">0</span>
 
                             <button
-                                class="btn btn-outline-success btn-sm"
+                                class="btn-all btn-all-outline-success btn-all-sm"
                                 onclick="agregarAlCarrito(
                                     1,
                                     'Galletas de Chocolate',
@@ -67,7 +69,7 @@
                             </button>
                         </div>
                         <button
-                            class="btn btn-success w-100 mt-3 text-white"
+                            class="btn-all btn-all-success w-100 mt-3 text-white"
 
                         >
                             ¡LAS QUIERO! <i class="bi bi-cart-plus"></i>
@@ -93,7 +95,7 @@
                             class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
                         >
                             <button
-                                class="btn btn-outline-secondary btn-sm"
+                                class="btn-all btn-all-outline-secondary btn-all-sm"
                                 onclick="quitarDelCarrito(2)"
                             >
                                 -
@@ -102,7 +104,7 @@
                             <span id="qty-2" class="fw-bold">0</span>
 
                             <button
-                                class="btn btn-outline-success btn-sm"
+                                class="btn-all btn-all-outline-success btn-all-sm"
                                 onclick="agregarAlCarrito(
                                     2,
                                     'Galletas de Chocolate',
@@ -113,10 +115,10 @@
                             </button>
                         </div>
                         <button
-                            class="btn btn-success w-100 mt-3 text-white"
+                            class="btn-all btn-all-success w-100 mt-3 text-white"
 
                         >
-                            ¡LAS QUIERO!
+                            ¡LAS QUIERO! <i class="bi bi-cart-plus"></i>
                         </button>
                         
                     </div>
@@ -140,7 +142,7 @@
                             class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
                         >
                             <button
-                                class="btn btn-outline-secondary btn-sm"
+                                class="btn-all btn-all-outline-secondary btn-all-sm"
                                 onclick="quitarDelCarrito(3)"
                             >
                                 -
@@ -149,7 +151,7 @@
                             <span id="qty-3" class="fw-bold">0</span>
 
                             <button
-                                class="btn btn-outline-success btn-sm"
+                                class="btn-all btn-all-outline-success btn-all-sm"
                                 onclick="agregarAlCarrito(
                                     3,
                                     'Caja de galletas x6',
@@ -160,10 +162,10 @@
                             </button>
                         </div>
                         <button
-                            class="btn btn-success w-100 mt-3 text-white"
+                            class="btn-all btn-all-success w-100 mt-3 text-white"
 
                         >
-                            ¡LA QUIERO!
+                            ¡LA QUIERO! <i class="bi bi-cart-plus"></i>
                         </button>
                        
                     </div>
@@ -189,7 +191,7 @@
                             class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
                         >
                             <button
-                                class="btn btn-outline-secondary btn-sm"
+                                class="btn-all btn-all-outline-secondary btn-all-sm"
                                 onclick="quitarDelCarrito(4)"
                             >
                                 -
@@ -198,17 +200,17 @@
                             <span id="qty-4" class="fw-bold">0</span>
 
                             <button
-                                class="btn btn-outline-success btn-sm"
+                                class="btn-all btn-all-outline-success btn-all-sm"
                                 onclick="agregarAlCarrito(4, 'mani dulce 60gr', 2000)"
                             >
                                 +
                             </button>
                         </div>
                         <button
-                            class="btn btn-success w-100 mt-3 text-white"
+                            class="btn-all btn-all-success w-100 mt-3 text-white"
 
                         >
-                            ¡LO QUIERO!
+                            ¡LO QUIERO! <i class="bi bi-cart-plus"></i>
                         </button>
                        
                     </div>
@@ -229,7 +231,7 @@
                             class="qty-controls d-flex align-items-center justify-content-center p-2 gap-2"
                         >
                             <button
-                                class="btn btn-outline-secondary btn-sm"
+                                class="btn-all btn-all-outline-secondary btn-all-sm"
                                 onclick="quitarDelCarrito(5)"
                             >
                                 -
@@ -238,7 +240,7 @@
                             <span id="qty-5" class="fw-bold">0</span>
 
                             <button
-                                class="btn btn-outline-success btn-sm"
+                                class="btn-all btn-all-outline-success btn-all-sm"
                                 onclick="
                                     agregarAlCarrito(
                                     5,
@@ -251,11 +253,11 @@
                             </button>
                         </div>
                         <button
-                            class="btn btn-success w-100 mt-3 text-white"
+                            class="btn-all btn-all-success w-100 mt-3 text-white"
                             
                                 
                         >
-                            ¡LO QUIERO!
+                            ¡LO QUIERO! <i class="bi bi-cart-plus"></i>
                         </button>
                         
                     </div>
@@ -264,15 +266,26 @@
         </div>
 
         <footer>
-            <p>¿Tienes un antojo o un evento?</p>
-            <p>Contáctanos</p>
+           <div class="d-flex justify-content-center">
+             <div>
+               <p>Cocina Titi's artesanales</p>
+             </div>
+             <div class="mx-2">
+               <p >¿Tienes un antojo o un evento?</p>
+               <p >Contáctanos</p>
+             </div>
+           </div>
             <a
                 href="https://wa.me/3134114485?text=Hola!%20Me%20gustaría%20pedir%20un%20presupuesto"
             >
-                <button type="button" class="btn btn-success">
-                    <i class="bi bi-whatsapp mx-2"></i>Whatsapp
+                <button type="button" class="btn-all btn-all-success">
+                    <i class="bi bi-whatsapp mx-"></i>Whatsapp
                 </button>
+
             </a>
+                              <button type="button" class="btn-all btn-all-success">
+                    <i class="bi bi-mail mx-2"></i>Correo
+                </button>
             <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 20px">
                 &copy; 2026 Galletas Artesanales
             </p>
@@ -286,7 +299,7 @@
         <div class="btn-flotante-container" onclick="enviarAlWhatsApp()">
 
     <button class="btn-whatsapp-float">
-        <i class="bi bi-send"></i>
+        <i class="bi bi-cart"></i>
         <span class="texto-boton">Enviar Pedido</span>
     </button>
 </div>
