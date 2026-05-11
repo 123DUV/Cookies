@@ -1,5 +1,11 @@
 let pedido=JSON.parse(localStorage.getItem('carritoGuardado')) || [];
-actualizarContador();
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  actualizarContador();
+});
+
+
+
 
 
 
@@ -13,6 +19,7 @@ function quitarDelCarrito(id){
       buscarProducto.cantidad-=1;
     }else{
       pedido = pedido.filter(item=>item.id !== id)
+      
     }
     actualizarCarrito();
   actualizarContador();
@@ -21,6 +28,7 @@ function quitarDelCarrito(id){
   
 }
 function agregarAlCarrito(id, nombre, precio){
+  
   const buscarProducto = pedido.find(item=>item.id===id);
   if(buscarProducto){
     buscarProducto.cantidad+=1;
@@ -32,6 +40,7 @@ function agregarAlCarrito(id, nombre, precio){
     cantidad:1
   };
   pedido.push(productoNuevo);
+
   }
   console.log(pedido);
   actualizarCarrito();
@@ -39,19 +48,35 @@ function agregarAlCarrito(id, nombre, precio){
 }
 
 function actualizarContador(){
+  let contador =0;
+  
+
   document.querySelectorAll('[id^="qty-"]').forEach(span=>{
     span.innerText="0";
   });
+  document.querySelectorAll('.btn-prueba').forEach(btn=>{
+    btn.innerHTML= '¡LO QUIERO! <i class="bi bi-cart-plus"></i>';
+    btn.style.backgroundColor="";
+  })
   pedido.forEach(producto=>{
+    contador+=producto.cantidad;
     const span = document.getElementById(`qty-${producto.id}`);
-    if(span){
-      span.innerText=producto.cantidad;
-    }
+    if(span) span.innerText=producto.cantidad;
+      const boton =document.getElementById(`btn-${producto.id}`);
+      if(boton && producto.cantidad>=1){
+        boton.innerHTML= "<i class='bi bi-check'></i> ¡AGREGADO!";
+        boton.style.backgroundColor="#cdacb7"
+      }
+    
+    
   });
   
-  
+  badge(contador);
 }
-
+function badge(contador){
+  console.log("llegando a badge", contador)
+  document.getElementById('badge').innerText=contador;
+}
 function enviarAlWhatsApp() {
   if (pedido.length === 0) {
     alert("El carrito está vacío. ¡Agrega unas galletas primero!");

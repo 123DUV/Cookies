@@ -168,7 +168,7 @@ body {
 
 /* El botón circular/alargado */
 .btn-whatsapp-float {
-    background-color: #25d366;
+    background-color: #cdacb7;
     color: white;
     border: none;
     border-radius: 50px;
@@ -185,12 +185,12 @@ body {
 
 .btn-whatsapp-float:hover {
     transform: scale(1.05);
-    background-color: #20b358;
+    background-color: #cdacb7;
 }
 
 /* Badge del contador (el numerito rojo) */
 .badge-flotante {
-    background-color: #ff3b30;
+    background-color: #4e0017;
     color: white;
     font-size: 12px;
     font-weight: bold;
@@ -201,9 +201,10 @@ body {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -10px;
+    top: -12px;
     right: 5px;
     border: 2px solid white;
+    z-index: 1000;
 }
 
 /* Animación sutil */
